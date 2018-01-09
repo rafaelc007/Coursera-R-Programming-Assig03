@@ -55,7 +55,7 @@ rankhospital <- function(state, outcome, num = 1){
     
     ## check validity of state
     valid <- FALSE
-    for(state_name in State){
+    for(state_name in levels(factor(State))){
         if(state_name == state){
             valid <- TRUE
             break
