@@ -7,9 +7,9 @@ setwd(data_path)
 
 adjust <- function(nome){
   switch (nome,
-    "heart attack" = "Heart.Attack",
-    "heart failure" = "Heart.Failure",
-    "pneumonia" = "Pneumonia", 0)
+          "heart attack" = "Heart.Attack",
+          "heart failure" = "Heart.Failure",
+          "pneumonia" = "Pneumonia", 0)
 }
 
 best <- function(state, outcome) {
@@ -17,9 +17,6 @@ best <- function(state, outcome) {
 	## Check that state and outcome are valid
 	## Return hospital name in that state with lowest 30-day death
 	## rate
-  
-  ## setting up the paths
-  current_path <- dirname(getActiveDocumentContext()$path)
   
   ## initialize
   Hospital <- character()
@@ -37,6 +34,7 @@ best <- function(state, outcome) {
     outcome <- paste("Hospital.30.Day.Death..Mortality..Rates.from.",adjusted,sep = "")
   }
   
+  ## separating work data
   State <- outcome_data[,7]
   options(warn=-1)
   Day_Death <- as.numeric(outcome_data[,outcome])
